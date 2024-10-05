@@ -1,8 +1,20 @@
 .header{
-    background-image: linear-gradient(to bottom right, rgb(123, 81, 229), rgb(145, 169, 205), rgb(48, 48, 226) ) !important;
+    box-shadow: 0px 5px 8px rgb(54, 53, 53);
 }
-.appLogo {
-    color: gold; 
+.logo {
+    width: 52px;
+    height: 48px;
+    position: relative;
     font-size: 2rem; 
+  }
+  .logo-img1{
+    color: gold;
+  }
+  .logo-img2{
+    position: absolute;
+    top: 15px;
+    left: 19px;
+    z-index: 1;
+    color: #ffffff;
   }
   

@@ -1,0 +1,11 @@
+.weather-card{
+    position: relative;
+}
+.remove-btn{
+    position: absolute !important;
+    right: 0;
+    top: 0;
+}
+.remove-btn:hover{
+    color: red !important;
+}

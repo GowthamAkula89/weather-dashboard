@@ -10,7 +10,9 @@ interface Widget {
     state: string;
     country: string;
     temp: number;
-    windSpeed:number;
+    windSpeed: number;
+    condition: string;
+    icon: JSX.Element | null;
 }
 
 interface DashboardProps {
@@ -21,7 +23,7 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({ widgets, removeWidget }) => {
     return (
         <Box sx={{ p: 2 }}>
-            <div className="toggle-btn" style ={{display:"flex", justifyContent:"end"}}>
+            <div className="toggle-btn" style={{ display: "flex", justifyContent: "end" }}>
                 <TemperatureToggle />
             </div>
             <Grid container spacing={2} sx={{ mt: 2 }}>

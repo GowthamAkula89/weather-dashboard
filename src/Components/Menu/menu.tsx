@@ -1,6 +1,7 @@
 import React from "react";
-import {Box, Typography, Paper, List, ListItem, ListItemText,} from "@mui/material";
-import "./menu.css"
+import { Box, Typography, Paper, List, ListItem, ListItemText } from "@mui/material";
+import "./menu.css";
+
 interface City {
   id: string;
   name: string;
@@ -17,24 +18,45 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ filteredCities, handleSearchCity, onClose }) => {
   return (
-    <Paper sx={{ width:"50%", position: "absolute", top: "56px", zIndex: 1 }}  elevation={3}>
+    <Paper
+      sx={{width: "50%", position: "absolute", top: "56px", zIndex: 1, maxHeight: "300px", overflowY: "auto"}}
+      elevation={3}
+    >
       <Box>
-        <List className="list-container" sx={{width: "100%", maxHeight: "250px", overflowY: "auto" }}>
-          {filteredCities && filteredCities.map((city) => (
-            <ListItem  key={city.id} onClick={() => {
-              handleSearchCity(city);
-              onClose();
-            }}>
+        <List
+          className="list-container"
+          sx={{ width: "100%", maxHeight: "250px", overflowY: "auto" }}
+        >
+          {filteredCities.length > 0 ? (
+            filteredCities.map((city) => (
+              <ListItem
+                key={city.id}
+                onClick={() => {
+                  handleSearchCity(city);
+                  onClose();
+                }}
+                sx={{
+                  cursor: "pointer",
+                  '&:hover': { backgroundColor: "#f0f0f0" }
+                }}
+              >
+                <ListItemText
+                  primary={<Typography variant="h6">{city.name}</Typography>}
+                  secondary={
+                    <Typography variant="body2">
+                      {city.admin1}, {city.country}
+                    </Typography>
+                  }
+                />
+              </ListItem>
+            ))
+          ) : (
+            <ListItem>
               <ListItemText
-                primary={<Typography variant="h6">{city.name}</Typography>}
-                secondary={
-                  <Typography variant="body2">
-                    {city.admin1}, {city.country}
-                  </Typography>
-                }
+                primary={<Typography variant="body2">No results found</Typography>}
               />
             </ListItem>
-          ))}
+          )}
         </List>
       </Box>
     </Paper>

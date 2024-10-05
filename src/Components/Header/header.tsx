@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { MdSunny } from "react-icons/md";
+import { IoIosSunny } from "react-icons/io";
+import { FaCloudShowersHeavy } from "react-icons/fa";
+import { FaCloudSunRain } from "react-icons/fa";
 import Menu from "../Menu/menu";
-import {AppBar, Toolbar, Typography, TextField, Button, Box,} from "@mui/material";
+import {  Toolbar, Typography, TextField, Button, Box } from "@mui/material";
 import fetchData from "../../Utils/fetchData"; 
 import "./header.css";
 
@@ -78,31 +80,38 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
 
     // Fetch weather data for the selected city
     const weather = await fetchData(selectedCity);
-    console.log("Weather", weather)
+
     // Use the selectedCity and weather data to construct the widget details
     const details = {
       name: selectedCity.name,
       state: selectedCity.admin1,
       country: selectedCity.country,
-      temp: weather.current_weather.temperature,
-      windspeed: weather.current_weather.windspeed
+      temp: weather.temperature,
+      windSpeed: weather.windspeed,
+      condition: weather.condition,
+      icon: weather.icon
     };
-    setSearchValue("")
-    setSelectedCity(null)
+
+    setSearchValue("");
+    setSelectedCity(null);
+
     // Call addWidget with the details
     addWidget(details);
   };
 
   return (
-    <AppBar position="static" className="header">
+    <div className="header">
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", gap: 5 }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <MdSunny className="appLogo" />
+          <div className="logo">
+            <IoIosSunny className="logo-img1"/>
+            <FaCloudShowersHeavy className="logo-img2"/>
+          </div>
           <Typography variant="h6" sx={{ ml: 1, color: "#fff" }}>
             Weather
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1, flex:1 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, flex: 1 }}>
           <TextField
             variant="outlined"
             value={searchValue}
@@ -124,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
           )}
         </Box>
       </Toolbar>
-    </AppBar>
+    </div>
   );
 };
 

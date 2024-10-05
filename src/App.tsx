@@ -10,7 +10,9 @@ interface Widget {
   state: string;
   country: string;
   temp: number;
-  windSpeed:number
+  windSpeed: number;
+  condition: string;
+  icon: JSX.Element | null;
 }
 
 function App() {
