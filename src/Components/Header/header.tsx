@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className="header">
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", gap: 5 }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <MdSunny className="appLogo" />

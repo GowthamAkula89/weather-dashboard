@@ -21,14 +21,16 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({ widgets, removeWidget }) => {
     return (
         <Box sx={{ p: 2 }}>
-        <TemperatureToggle />
-        <Grid container spacing={2} sx={{ mt: 2 }}>
-            {widgets.map((widget) => (
-            <Grid size={{ xs: 12, md: 4, lg:3 }} key={widget.id}>
-                <WeatherWidget widget={widget} onRemove={removeWidget} />
+            <div className="toggle-btn" style ={{display:"flex", justifyContent:"end"}}>
+                <TemperatureToggle />
+            </div>
+            <Grid container spacing={2} sx={{ mt: 2 }}>
+                {widgets.map((widget) => (
+                <Grid size={{ xs: 12, md: 4, lg:3 }} key={widget.id}>
+                    <WeatherWidget widget={widget} onRemove={removeWidget} />
+                </Grid>
+                ))}
             </Grid>
-            ))}
-        </Grid>
         </Box>
     );
 };

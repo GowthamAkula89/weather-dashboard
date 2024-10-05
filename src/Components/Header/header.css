@@ -1,3 +1,6 @@
+.header{
+    background-image: linear-gradient(to bottom right, rgb(123, 81, 229), rgb(145, 169, 205), rgb(48, 48, 226) ) !important;
+}
 .appLogo {
     color: gold; 
     font-size: 2rem; 

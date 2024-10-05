@@ -1,0 +1,18 @@
+.toggle-button {
+    background-color: transparent !important; 
+    color: black !important; 
+}
+
+.toggle-button.active {
+    background-color: rgb(50, 169, 50) !important; 
+    color: white !important; 
+}
+
+.toggle-button:hover {
+    background-color: lightgray !important; 
+}
+
+.toggle-button.active:hover {
+    background-color: rgb(14, 21, 14) !important; 
+}
+  
