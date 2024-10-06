@@ -27,7 +27,7 @@ const Menu: React.FC<MenuProps> = ({ filteredCities, handleSearchCity, onClose }
           className="list-container"
           sx={{ width: "100%", maxHeight: "250px", overflowY: "auto" }}
         >
-          {filteredCities.length > 0 ? (
+          {filteredCities?.length > 0 ? (
             filteredCities.map((city) => (
               <ListItem
                 key={city.id}
