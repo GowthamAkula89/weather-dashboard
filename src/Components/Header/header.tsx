@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { IoIosSunny } from "react-icons/io";
 import { FaCloudShowersHeavy } from "react-icons/fa";
-import { FaCloudSunRain } from "react-icons/fa";
 import Menu from "../Menu/menu";
-import {  Toolbar, Typography, TextField, Button, Box } from "@mui/material";
+import {  Toolbar, Typography, TextField, Button, Box, CircularProgress } from "@mui/material";
 import fetchData from "../../Utils/fetchData"; 
 import "./header.css";
 
@@ -25,7 +24,8 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
   const [filteredCities, setFilteredCities] = useState<City[]>([]);
   const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [selectedCity, setSelectedCity] = useState<City | null>(null); 
+  const [selectedCity, setSelectedCity] = useState<City | null>(null);
+  const [isLoadingAdd, setIsLoadingAdd] = useState<boolean>(false); 
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
       console.error("No city selected");
       return;
     }
-
+    setIsLoadingAdd(true);
     // Fetch weather data for the selected city
     const weather = await fetchData(selectedCity);
 
@@ -95,8 +95,8 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
     setSearchValue("");
     setSelectedCity(null);
 
-    // Call addWidget with the details
     addWidget(details);
+    setIsLoadingAdd(false);
   };
 
   return (
@@ -121,8 +121,15 @@ const Header: React.FC<HeaderProps> = ({ addWidget }) => {
             size="small"
             sx={{ flex: 1 }}
           />
-          <Button variant="contained" onClick={handleAdd}>
-            Add
+          <Button variant="contained" onClick={handleAdd} disabled={isLoadingAdd} 
+            sx={{
+              backgroundColor: isLoadingAdd ? "white" : "primary",
+              '&.Mui-disabled': {
+                backgroundColor: "white",
+              },
+            }}
+            >
+              {isLoadingAdd ? <CircularProgress size={24} sx={{color:"green"}}/> : 'Add'} 
           </Button>
           {isMenuOpen && (
             <Menu
