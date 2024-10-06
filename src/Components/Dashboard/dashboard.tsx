@@ -28,7 +28,7 @@ const Dashboard: React.FC<DashboardProps> = ({ widgets, removeWidget }) => {
             </div>
             <Grid container spacing={2} sx={{ mt: 2 }}>
                 {widgets.map((widget) => (
-                <Grid size={{ xs: 12, md: 4, lg:3 }} key={widget.id}>
+                <Grid size={{ xs: 12, sm:6, md: 4, lg:3 }} key={widget.id}>
                     <WeatherWidget widget={widget} onRemove={removeWidget} />
                 </Grid>
                 ))}
