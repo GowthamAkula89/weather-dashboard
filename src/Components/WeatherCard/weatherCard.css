@@ -1,5 +1,19 @@
-.weather-card{
+.widget-card {
     position: relative;
+    background-image: linear-gradient(to left bottom, #597fd1, #5fadc8, #74ebd5);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 16px;
+    color: #fff; 
+}
+.widget-card:hover {
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+.icon-container {
+    font-size: 64px;
+    color: #FFF;
 }
 .remove-btn{
     position: absolute !important;
