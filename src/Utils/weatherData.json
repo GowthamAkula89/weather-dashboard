@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1728149778599,
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "temp": 24.4,
+      "windSpeed": 2.3,
+      "condition": "Clear sky"
+    },
+    {
+      "id": 1728179272559,
+      "name": "Dharmavaram",
+      "state": "Andhra Pradesh",
+      "country": "India",
+      "temp": 24.1,
+      "windSpeed": 2.6,
+      "condition": "Rain showers: Slight"
+    },
+    {
+      "id": 1728179304836,
+      "name": "Hindupur",
+      "state": "Andhra Pradesh",
+      "country": "India",
+      "temp": 22.9,
+      "windSpeed": 2.5,
+      "condition": "Rain showers: Slight"
+    },
+    {
+      "id": 1728179831391,
+      "name": "Texas",
+      "state": "Hidalgo",
+      "country": "Mexico",
+      "temp": 16.5,
+      "windSpeed": 7.2,
+      "condition": "Overcast"
+    },
+    {
+      "id": 1728179994620,
+      "name": "Reykjavík",
+      "state": "Capital Region",
+      "country": "Iceland",
+      "temp": -4.6,
+      "windSpeed": 42.5,
+      "condition": "Overcast"
+    },
+    {
+      "id": 1728183289441,
+      "name": "Enterprise",
+      "state": "Oregon",
+      "country": "United States",
+      "temp": 12.1,
+      "windSpeed": 4.2,
+      "condition": "Clear sky"
+    }
+  ]
+  

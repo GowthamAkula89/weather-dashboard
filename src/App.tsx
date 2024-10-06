@@ -3,7 +3,7 @@ import './App.css';
 import { TemperatureProvider } from './temparatureContext';
 import Dashboard from './Components/Dashboard/dashboard';
 import Header from './Components/Header/header';
-
+import data from "./Utils/weatherData.json"
 interface Widget {
   id: number;
   name: string;
@@ -18,9 +18,13 @@ interface Widget {
 function App() {
   const [widgets, setWidgets] = useState<Widget[]>(() => {
     const savedWidgets = localStorage.getItem('weatherWidgets');
-    return savedWidgets ? JSON.parse(savedWidgets) : [];
+    if (savedWidgets && savedWidgets.trim().length !== 0) {
+      return JSON.parse(savedWidgets);
+    } else {
+      return data || [];
+    }
   });
-
+  console.log("widgets", widgets)
   useEffect(() => {
     localStorage.setItem('weatherWidgets', JSON.stringify(widgets));
   }, [widgets]);
