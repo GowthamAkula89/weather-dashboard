@@ -26,8 +26,14 @@ function App() {
   }, [widgets]);
 
   const addWidget = (data: Omit<Widget, 'id'>) => {
-    const newWidget = { id: Date.now(), ...data };
-    setWidgets((prev) => [...prev, newWidget]);
+    const widgetExists = widgets.some(widget => widget.name === data.name);
+    if (widgetExists) {
+      alert('A City with this name already exists.');
+      return;
+    }
+
+    const newWidget: Widget = { id: Date.now(), ...data };
+    setWidgets(prev => [...prev, newWidget]);
   };
 
   const removeWidget = (id: number) => {
